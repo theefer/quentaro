@@ -1,0 +1,21 @@
+#!/usr/bin/ruby
+
+require 'Qt4'
+
+
+# FIXME: ugly way to load libs from src/
+$:.push("src")
+
+require("quentaro")
+
+app = Qt::Application.new(ARGV)
+
+# teh app
+quentaro = Quentaro.new
+
+mainwin = Qt::MainWindow.new
+mainwin.setCentralWidget(quentaro)
+mainwin.setWindowTitle("quentaro")
+mainwin.show
+
+app.exec()
